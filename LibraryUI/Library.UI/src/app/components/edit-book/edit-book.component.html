@@ -1,0 +1,68 @@
+
+<!-- <script>
+  function setValue() {
+    var test = [(ngModel)]="updateBookDetails.id";
+    console.log(test);
+    document.getElementById("Id").value = test;
+  }
+  (function () {
+  document.getElementById('reset').addEventListener('click', setValue, true);
+})();
+</script> -->
+
+<div class="container border w-50 mt-2">
+  <h1>Edit Book</h1>
+  <hr>
+  <!-- #form="ngForm" (ngSubmit)="addBook()" -->
+  <form id="formNewBook" #form="ngForm" (ngSubmit)="updateBook()">
+    <div class="d-flex justify-content-between">
+
+      <div class="d-flex flex-column row g-3 align-items-start w-40">
+
+        <div class="row m-2">
+          <label for="Id" class="col-sm-3 col-form-label">Id</label>
+          <input type="text" id="Id" class="col-sm form-control" readonly required name="id" value="" [(ngModel)]="updateBookDetails.id">
+        </div>
+
+        <div class="row m-2">
+          <label for="Title" class="col-sm-3 col-form-label">Title</label>
+          <input type="text" id="Title" class="col-sm form-control" required name="title" [(ngModel)]="updateBookDetails.title">
+        </div>
+
+        <div class="row m-2">
+          <label for="formFile" class="col-sm-3 col-form-label">Cover</label>
+          <!-- required name="cover" [(ngModel)]="updateBookDetails.cover" -->
+          <input class="col-sm form-control" type="file" id="formFile" >
+        </div>
+
+        <div class="row m-2">
+          <label for="Genre" class="col-sm-3 col-form-label">Genre</label>
+          <input type="text" id="Genre" class="col-sm form-control" required name="genre" [(ngModel)]="updateBookDetails.genre">
+        </div>
+
+        <div class="row m-2">
+          <label for="Author" class="col-sm-3 col-form-label">Author</label>
+          <input type="text" id="Author" class="col-sm form-control" required name="author" [(ngModel)]="updateBookDetails.author">
+        </div>
+
+      </div>
+
+      <div class="row g-3 w-40">
+        <div class="row m-2">
+          <label for="textarea-content" class="col-sm-3 col-form-label p-2">Content</label>
+          <textarea class="col-sm form-control" id="textarea-content" rows="8" required name="content" [(ngModel)]="updateBookDetails.content"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="buttons d-flex justify-content-center m-2">
+      <button type="submit" class="btn btn-primary m-1">Update</button>
+      <button type="button" class="btn btn-danger m-1" (click)="deleteBook((updateBookDetails.id).toString())">Delete</button>
+      <button type="button" class="btn btn-info m-1" (click)="openModal()">View</button>
+      <!-- <button type="reset" id="reset" class="btn btn-primary m-1 bg-warning border-warning" name="reset">Clear</button> -->
+    </div>
+
+  </form>
+
+</div>

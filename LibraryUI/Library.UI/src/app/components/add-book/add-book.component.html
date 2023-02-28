@@ -1,0 +1,52 @@
+<div class="container border w-50 mt-2">
+  <h1>Add Book</h1>
+  <hr>
+  <form id="formNewBook" #form="ngForm" (ngSubmit)="addBook()">
+    <div class="d-flex justify-content-between">
+
+      <div class="d-flex flex-column row g-3 align-items-start w-40">
+
+        <div class="row m-2">
+          <label for="Title" class="col-sm-3 col-form-label">Title</label>
+          <input type="text" id="Title" class="col-sm form-control" required name="title" [(ngModel)]="addBookRequest.title">
+        </div>
+
+        <div class="row m-2">
+          <label for="formFile" class="col-sm-3 col-form-label">Cover</label>
+          <!-- required name="cover" [(ngModel)]="addBookRequest.cover" -->
+          <input class="col-sm form-control" type="file" id="formFile" >
+        </div>
+
+        <div class="row m-2">
+          <label for="Genre" class="col-sm-3 col-form-label">Genre</label>
+          <input type="text" id="Genre" class="col-sm form-control" required name="genre" [(ngModel)]="addBookRequest.genre">
+        </div>
+
+        <div class="row m-2">
+          <label for="Author" class="col-sm-3 col-form-label">Author</label>
+          <input type="text" id="Author" class="col-sm form-control" required name="author" [(ngModel)]="addBookRequest.author">
+        </div>
+
+      </div>
+
+      <div class="row g-3 w-40">
+        <div class="row m-2">
+          <label for="textarea-content" class="col-sm-3 col-form-label p-2">Content</label>
+          <textarea class="col-sm form-control" id="textarea-content" rows="8" required name="content" [(ngModel)]="addBookRequest.content"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="buttons d-flex justify-content-center m-2">
+      <button type="submit" class="btn btn-primary m-1">Add</button>
+      <button type="reset" id="reset" class="btn btn-primary m-1 bg-warning border-warning" name="reset">Clear</button>
+    </div>
+
+  </form>
+  <script>
+    function clearForm() {
+      document.getElementById("formNewBook").reset();
+    }
+    </script>
+</div>

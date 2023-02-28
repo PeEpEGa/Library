@@ -1,0 +1,16 @@
+.content {
+  height: 300px;
+  width: 100%;
+}
+
+.image-part img {
+  display: block;
+  height: 250px;
+  max-width:170px;
+  width: auto;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  max-height: 70%;
+}

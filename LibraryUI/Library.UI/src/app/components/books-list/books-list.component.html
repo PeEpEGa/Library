@@ -1,0 +1,31 @@
+<div class="container border p-0 d-flex flex-wrap justify-content-around align-items-center w-50 mt-3" *ngIf="books && books.length > 0">
+  <div *ngFor="let book of books" class="imgph d-flex border m-2 rounded">
+    <div class="d-flex justify-content-center align-items-center w-25">
+      <!-- <script>
+        var image = new Image();
+        image.src = {book.cover};
+        document.body.appendChild(image);
+      </script> -->
+      <img src="https://m.media-amazon.com/images/I/51StPSSsneL.jpg" alt="Harry Potter" class="img-fluid object-fit-cover w-auto">
+    </div>
+    <div class="book-itm d-flex flex-column justify-content-between w-50">
+      <h2 id="book-t">{{book.title}}</h2>
+      <div class="d-flex justify-content-between">
+        <p class="d-inline">Reviews: {{book.reviewsNumber}}</p>
+        <p class="d-inline">Rating: {{book.rating}}</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end w-25">
+
+      <button class="m-1 rounded btns" [routerLink]="['editbook', book.id]"><img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt=""></button>
+      <!-- <button class="m-1 rounded" id="logout-button" (click)="openModal()" [routerLink]="['bookinfo',book.id]"><img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" alt=""></button> -->
+      <!-- [routerLink]="[book.id]" -->
+      <!-- (click)="deleteBook((updateBookDetails.id).toString()) -->
+      <!-- <main id="logout-button-holder">
+        <button mat-raised-button id="logout-button" (click)="openModal()">Logout</button>
+    </main> -->
+    </div>
+  </div>
+</div>
+
+<p *ngIf="!books || books.length == 0">Books not found</p>
